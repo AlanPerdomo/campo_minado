@@ -1,16 +1,28 @@
-# campo_minado
 
-A new Flutter project.
+# Campo Minado
 
-## Getting Started
+Bem-vindo ao projeto **Campo Minado**! Este é um jogo clássico de Campo Minado, recriado com Flutter. Se você é fã de jogos de lógica e estratégia, este projeto foi feito especialmente para você.
 
-This project is a starting point for a Flutter application.
+## Sobre o Projeto
 
-A few resources to get you started if this is your first Flutter project:
+O **Campo Minado** é um projeto Flutter que visa trazer a diversão e o desafio do clássico jogo de Campo Minado para dispositivos móveis. O objetivo do jogo é simples: você deve revelar todas as células vazias do tabuleiro sem tocar em uma mina. Mas cuidado, um movimento errado pode acabar com a sua partida!
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Este projeto é uma ótima maneira de explorar o desenvolvimento de aplicativos móveis com Flutter, permitindo que você pratique habilidades em:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Interface do usuário (UI) interativa
+- Gerenciamento de estado
+- Manipulação de eventos de toque
+- Lógica de jogo e algoritmos
+
+## Começando
+
+Este projeto serve como um ponto de partida para o desenvolvimento Flutter. Se este é o seu primeiro projeto em Flutter, confira os recursos abaixo para ajudá-lo a dar os primeiros passos:
+
+- [Lab: Escreva seu primeiro aplicativo Flutter](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Exemplos úteis de Flutter](https://docs.flutter.dev/cookbook)
+
+Para mais informações sobre o desenvolvimento com Flutter, consulte a [documentação online](https://docs.flutter.dev/), onde você encontrará tutoriais, exemplos, orientações sobre desenvolvimento móvel e uma referência completa da API.
+
+## Contribuições
+
+Se você tem ideias para melhorias ou deseja contribuir com o projeto, sinta-se à vontade para abrir uma _issue_ ou enviar um _pull request_. Toda ajuda é bem-vinda!
