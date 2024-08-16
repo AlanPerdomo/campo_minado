@@ -1,13 +1,13 @@
-import 'package:flutter/foundation.dart';
 import 'explosao_exception.dart';
 
 class Campo {
   final int linha;
   final int coluna;
   final List<Campo> vizinhos = [];
+
   bool _aberto = false;
-  bool _minado = false;
   bool _marcado = false;
+  bool _minado = false;
   bool _explodido = false;
 
   Campo({
@@ -16,8 +16,8 @@ class Campo {
   });
 
   void adicionarVizinho(Campo vizinho) {
-    final deltaLinha = (vizinho.linha - linha).abs();
-    final deltaColuna = (vizinho.coluna - coluna).abs();
+    final deltaLinha = (linha - vizinho.linha).abs();
+    final deltaColuna = (coluna - vizinho.coluna).abs();
 
     if (deltaLinha == 0 && deltaColuna == 0) {
       return;
@@ -32,18 +32,22 @@ class Campo {
     if (_aberto) {
       return;
     }
+
     _aberto = true;
+
     if (_minado) {
       _explodido = true;
       throw ExplosaoException();
     }
 
     if (vizinhancaSegura) {
-      vizinhos.forEach((vizinhos) => vizinhos.abrir());
+      for (var v in vizinhos) {
+        v.abrir();
+      }
     }
   }
 
-  void revelarBombas() {
+  void revelarBomba() {
     if (_minado) {
       _aberto = true;
     }
@@ -59,30 +63,38 @@ class Campo {
 
   void reiniciar() {
     _aberto = false;
-    _minado = false;
     _marcado = false;
+    _minado = false;
     _explodido = false;
+  }
+
+  bool get minado {
+    return _minado;
+  }
+
+  bool get explodido {
+    return _explodido;
+  }
+
+  bool get aberto {
+    return _aberto;
+  }
+
+  bool get marcado {
+    return _marcado;
   }
 
   bool get resolvido {
     bool minadoEMarcado = minado && marcado;
-    bool seguroEDescoberto = _aberto && !minado;
-    return minadoEMarcado || seguroEDescoberto;
+    bool seguroEAberto = !minado && aberto;
+    return minadoEMarcado || seguroEAberto;
   }
 
-  int get qtdeMinasNaVizinhanca {
-    return vizinhos.where((vizinho) => vizinho.minado).length;
+  bool get vizinhancaSegura {
+    return vizinhos.every((v) => !v.minado);
   }
 
-  bool get minadoEMarcado {
-    bool minadoEMarcado = minado && marcado;
-    bool seguroEDescoberto = _aberto && !minado;
-    return minadoEMarcado || seguroEDescoberto;
+  int get qtdeMinasNaVizinhaca {
+    return vizinhos.where((v) => v.minado).length;
   }
-
-  bool get vizinhancaSegura => vizinhos.every((vizinho) => !vizinho.minado);
-  bool get minado => _minado;
-  bool get aberto => _aberto;
-  bool get marcado => _marcado;
-  bool get explodido => _explodido;
 }

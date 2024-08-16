@@ -1,12 +1,12 @@
-import 'package:campo_minado/models/campo.dart';
 import 'package:flutter/material.dart';
+import '../models/campo.dart';
 
 class CampoWidget extends StatelessWidget {
   final Campo campo;
   final void Function(Campo) onAbrir;
   final void Function(Campo) onAlternarMarcacao;
 
-  CampoWidget({
+  const CampoWidget({
     required this.campo,
     required this.onAbrir,
     required this.onAlternarMarcacao,
@@ -14,7 +14,7 @@ class CampoWidget extends StatelessWidget {
   });
 
   Widget _getImage() {
-    int qtdeMinas = campo.qtdeMinasNaVizinhanca;
+    int qtdeMinas = campo.qtdeMinasNaVizinhaca;
 
     if (campo.aberto && campo.minado && campo.explodido) {
       return Image.asset('assets/images/bomba_0.jpeg');
